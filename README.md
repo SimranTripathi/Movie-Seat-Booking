@@ -68,3 +68,40 @@ Movie Seat Booking/
 ├── package.json
 ├── package-lock.json
 └── .gitignore
+Requirements
+Node.js 18+
+MongoDB running locally or a MongoDB Atlas connection string
+1. Start MongoDB
+For local MongoDB, make sure the MongoDB service is running.
+2. Start backend
+```bash
+cd server
+npm install
+copy .env.example .env
+npm run seed
+npm run dev
+```
+On macOS/Linux, use `cp .env.example .env` instead of `copy`.
+Edit `.env` if your MongoDB URI is different.
+Backend: http://localhost:5000
+3. Start frontend
+Open another terminal:
+```bash
+cd client
+npm install
+npm run dev
+```
+Frontend: http://localhost:5173
+How the 3 cases work
+Case 1
+User selects an available seat and clicks Pay at Counter. The backend atomically claims it, creates a booking code, stores the booking, and the seat remains BOOKED permanently.
+Case 2
+Two browser windows can select the same seat. The first payment changes the seat to BOOKED. The second payment receives HTTP 409 and the message: `Seat is already booked. Select any other seat.`
+Case 3
+Two payment requests can arrive at nearly the same time. Both try the same atomic query:
+```text
+showId + seatNumber + status: AVAILABLE
+```
+MongoDB allows only the first matching update to succeed. The other request gets HTTP 409.
+Timeout
+The 15-minute timer is a transaction window on the frontend. No database lock is created during selection. Therefore an expired or cancelled selection never freezes a seat. The seat remains AVAILABLE until a successful payment atomically books it.
