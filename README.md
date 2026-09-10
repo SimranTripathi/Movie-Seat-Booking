@@ -104,13 +104,22 @@ Frontend: http://localhost:5173
 How the 3 cases work
 ## Case 1
 User selects an available seat and clicks Pay at Counter. The backend atomically claims it, creates a booking code, stores the booking, and the seat remains BOOKED permanently.
+<img width="2880" height="1704" alt="Screenshot 2026-09-06 201211" src="https://github.com/user-attachments/assets/3b479dcb-97af-4161-889b-5d0d2f583556" />
+
+
 ##  Case 2
 Two browser windows can select the same seat. The first payment changes the seat to BOOKED. The second payment receives HTTP 409 and the message: `Seat is already booked. Select any other seat.`
+<img width="2850" height="1568" alt="Screenshot 2026-09-06 204119" src="https://github.com/user-attachments/assets/092f2757-6079-4d9b-8690-8a7769ab5172" />
+
+
 ## Case 3
 Two payment requests can arrive at nearly the same time. Both try the same atomic query:
 ```text
 showId + seatNumber + status: AVAILABLE
 ```
+<img width="2878" height="1486" alt="Screenshot 2026-09-06 204129" src="https://github.com/user-attachments/assets/43dcc737-42cb-4d58-af65-1477604cd558" />
+
+
 ## MongoDB allows only the first matching update to succeed. The other request gets HTTP 409.
 Timeout
 The 15-minute timer is a transaction window on the frontend. No database lock is created during selection. Therefore an expired or cancelled selection never freezes a seat. The seat remains AVAILABLE until a successful payment atomically books it.
