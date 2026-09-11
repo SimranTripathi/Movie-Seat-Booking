@@ -106,6 +106,7 @@ How the 3 cases work
 User selects an available seat and clicks Pay at Counter. The backend atomically claims it, creates a booking code, stores the booking, and the seat remains BOOKED permanently.
 <img width="2880" height="1704" alt="Screenshot 2026-09-06 201211" src="https://github.com/user-attachments/assets/3b479dcb-97af-4161-889b-5d0d2f583556" />
 
+![Uploading Screenshot 2026-09-06 201211.png…]()
 
 ##  Case 2
 Two browser windows can select the same seat. The first payment changes the seat to BOOKED. The second payment receives HTTP 409 and the message: `Seat is already booked. Select any other seat.`
