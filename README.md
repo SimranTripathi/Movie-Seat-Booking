@@ -103,18 +103,18 @@ npm run dev
 Frontend: http://localhost:5173
 How the 3 cases work
 ## Case 1
-User selects an available seat and clicks Pay at Counter. The backend atomically claims it, creates a booking code, stores the booking, and the seat remains BOOKED permanently.
+Movie Seat Booking home page showing movie details and seat layout.
 <img width="2880" height="1704" alt="Screenshot 2026-09-06 201211" src="https://github.com/user-attachments/assets/3b479dcb-97af-4161-889b-5d0d2f583556" />
 
-![Uploading Screenshot 2026-09-06 201211.png…]()
 
 ##  Case 2
-Two browser windows can select the same seat. The first payment changes the seat to BOOKED. The second payment receives HTTP 409 and the message: `Seat is already booked. Select any other seat.`
+ Selected seat with 15-minute transaction countdown and Pay at Counter button.`
+ Seat is already booked. Select any other seat.`
 <img width="2850" height="1568" alt="Screenshot 2026-09-06 204119" src="https://github.com/user-attachments/assets/092f2757-6079-4d9b-8690-8a7769ab5172" />
 
 
 ## Case 3
-Two payment requests can arrive at nearly the same time. Both try the same atomic query:
+Successful transaction showing the generated booking code.:
 ```text
 showId + seatNumber + status: AVAILABLE
 ```
