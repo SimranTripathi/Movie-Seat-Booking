@@ -104,12 +104,14 @@ Frontend: http://localhost:5173
 How the 3 cases work
 ## Case 1
 Movie Seat Booking home page showing movie details and seat layout.
+
 <img width="2880" height="1704" alt="Screenshot 2026-09-06 201211" src="https://github.com/user-attachments/assets/3b479dcb-97af-4161-889b-5d0d2f583556" />
 
 
 ##  Case 2
  Selected seat with 15-minute transaction countdown and Pay at Counter button.`
  Seat is already booked. Select any other seat.`
+
 <img width="2850" height="1568" alt="Screenshot 2026-09-06 204119" src="https://github.com/user-attachments/assets/092f2757-6079-4d9b-8690-8a7769ab5172" />
 
 
@@ -118,8 +120,13 @@ Successful transaction showing the generated booking code.:
 ```text
 showId + seatNumber + status: AVAILABLE
 ```
+
 <img width="2878" height="1486" alt="Screenshot 2026-09-06 204129" src="https://github.com/user-attachments/assets/43dcc737-42cb-4d58-af65-1477604cd558" />
 
+## Case 4
+ Generated PDF receipt containing the booking details.
+
+<img width="1648" height="1078" alt="Screenshot 2026-09-06 204144" src="https://github.com/user-attachments/assets/66ac8e67-c41b-40ba-8560-231a0f9a4f9d" />
 
 ## MongoDB allows only the first matching update to succeed. The other request gets HTTP 409.
 Timeout
