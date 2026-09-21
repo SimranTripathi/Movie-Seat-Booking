@@ -25,6 +25,7 @@ The system uses seat-locking mechanisms to prevent multiple users from booking t
 -  MongoDB database
 -  React frontend
 -  Node.js + Express backend
+-  frontend+ express 
 
 ##  Technologies Used
 
