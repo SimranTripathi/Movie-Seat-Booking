@@ -1,13 +1,27 @@
 # Movie Seat Booking System
 
-A web-based Movie Seat Booking System developed using React.js, Node.js, Express.js, and MongoDB.
+A web-based **Movie Seat Booking System** built using **React.js, Node.js, Express.js, and MongoDB**. The application provides a simple and secure way for users to view available movie seats, select their preferred seats, and complete the booking process.
 
 ## Project Overview
 
-The **Movie Seat Booking System** is a web-based application that allows users to view available seats, select their preferred seats, and temporarily hold them for **15 minutes** during the booking process. Users can complete their bookings through the **Pay at Counter** option.
+The **Movie Seat Booking System** allows users to browse available seats and select their preferred seats for a movie. Selected seats are temporarily **held for 15 minutes**, giving users sufficient time to complete their booking.
 
-The system uses seat-locking mechanisms to prevent multiple users from booking the same seat simultaneously. After a successful booking, the system generates a **unique booking code** and provides a **PDF receipt** containing the booking details.
+The system includes a **Pay at Counter** payment option and uses a **seat-locking mechanism** to prevent multiple users from booking the same seat simultaneously.
 
+After a successful booking, the system generates a **unique booking code** and creates a **PDF receipt** containing important booking details such as the movie, selected seats, booking information, and payment method.
+
+### Key Features
+
+* View available and booked seats
+* Select preferred movie seats
+* 15-minute temporary seat hold
+* Prevents duplicate or simultaneous seat bookings
+* Pay at Counter payment option
+* Unique booking code generation
+* PDF booking receipt generation
+* React.js-based user interface
+* Node.js and Express.js backend
+* MongoDB database integration
 
 ##  Features
 
