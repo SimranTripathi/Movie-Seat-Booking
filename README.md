@@ -144,6 +144,11 @@ showId + seatNumber + status: AVAILABLE
 
 <img width="1648" height="1078" alt="Screenshot 2026-09-06 204144" src="https://github.com/user-attachments/assets/66ac8e67-c41b-40ba-8560-231a0f9a4f9d" />
 
-## MongoDB allows only the first matching update to succeed. The other request gets HTTP 409.
-Timeout
-The 15-minute timer is a transaction window on the frontend. No database lock is created during selection. Therefore an expired or cancelled selection never freezes a seat. The seat remains AVAILABLE until a successful payment atomically books it.
+### Concurrent Booking
+
+MongoDB ensures that only the first matching update succeeds when multiple users try to book the same seat simultaneously. Any subsequent request fails and returns an **HTTP 409 Conflict** response.
+
+### Timeout Handling
+
+The **15-minute timer** acts as a transaction window on the frontend. No database lock is created while a seat is being selected. If the selection is cancelled or the timer expires, the seat is automatically available for others. A seat is marked as **BOOKED** only after a successful payment through an atomic database update.
+
