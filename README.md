@@ -1,6 +1,6 @@
 # Movie Seat Booking System
 
-A web-based **Movie Seat Booking System** built using **React.js, Node.js, Express.js, and MongoDB**. The application provides a simple and secure way for users to view available movie seats, select their preferred seats, and complete the booking process.
+A web-based **Movie Seat Booking System** built using **React.js, Node.js, Express.js, and MongoDB**. The application provides a simple and secure way for users to view available movie seats, select their preferred seats, and complete the booking process. Confirm booking.
 
 ## Project Overview
 
