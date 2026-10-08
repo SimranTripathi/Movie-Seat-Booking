@@ -10,6 +10,7 @@ The system includes a **Pay at Counter** payment option and uses a **seat-lockin
 
 After a successful booking, the system generates a **unique booking code** and creates a **PDF receipt** containing important booking details such as the movie, selected seats, booking information, and payment method.
 
+stored all customer booking details history.
 ### Key Features
 
 * View available and booked seats
