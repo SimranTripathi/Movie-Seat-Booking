@@ -19,6 +19,7 @@ stored all customer booking details history.
 * Prevents duplicate or simultaneous seat bookings
 * Pay at Counter payment option
 * Unique booking code generation
+* express.js for library
 * PDF booking receipt generation
 * React.js-based user interface
 * Node.js and Express.js backend
